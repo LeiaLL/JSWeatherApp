@@ -1,0 +1,126 @@
+body {
+  background-color: rgb(212, 236, 221, 0.8);
+}
+
+header {
+  padding: 60px 20px 20px 30px;
+}
+
+strong {
+  color: #92a759;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(107, 105, 105, 0.9);
+  padding: 20px 30px 20px 30px;
+  max-width: 60%;
+  font-family: monospace;
+  border: 3px solid #92a759;
+  margin: 0 auto;
+}
+
+input {
+  color: #5a6275;
+  margin-top: 5px;
+  font-size: 18px;
+  line-height: 2.25;
+  border: 2px solid #92a759;
+  border-radius: 5px;
+}
+.cityname {
+  background-color: rgb(241, 239, 239);
+  width: 300px;
+}
+
+h1 {
+  font-size: 80px;
+  margin: 0px 0px 0px 0px;
+}
+
+h5 {
+  margin: 35px 0px 0px 0px;
+  font-size: 30px;
+}
+
+p {
+  line-height: 1.25;
+  padding: 1px;
+  margin: 0px 0px 0px 0px;
+}
+
+#currently {
+  position: relative;
+  top: -25px;
+}
+
+.measurment {
+  font-size: 15px;
+  position: relative;
+  left: -53px;
+}
+h6 {
+  color: #5a6275;
+  margin: 30px 0px 10px 0px;
+}
+.main {
+  color: #5a6275;
+  margin: 10px 0px 10px 0px;
+  font-family: "Poppins", sans-serif;
+  padding: 0px 0px 0px 30px;
+}
+
+ul {
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  color: #5a6275;
+  padding: 55px 0px;
+}
+
+li {
+  border-radius: 15px;
+  background: rgb(212, 236, 221, 0.8);
+  margin: 10px;
+  padding: 7px 5px;
+  text-align: center;
+  line-height: 1.25;
+}
+.forecast {
+  display: block;
+  margin: 0 auto;
+}
+
+.weatherEmoji {
+  font-size: 60px;
+  text-align: center;
+}
+
+.day {
+  font-size: 15px;
+  text-align: center;
+  color: #5a6275;
+}
+
+.day.today {
+  font-size: 17px;
+  color: #5a6275;
+}
+
+.highlow {
+  font-size: 15px;
+  text-align: center;
+  color: #5a6275;
+}
+
+.col.predicted {
+  transition: all 200ms ease-in-out;
+  border-radius: 5px;
+}
+
+.col.predicted:hover {
+  background: rgb(212, 236, 221, 0.8);
+}
+
+#weather-description {
+  text-transform: capitalize;
+}
