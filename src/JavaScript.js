@@ -73,22 +73,23 @@ let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", showCity);
 
 function searchCurrentLocation(event) {
-  function getCurrentCoords(response) {
-    let latitude = response.coords.latitude;
-    let longitude = response.coords.longitude;
-    let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
-    let apiUrlByCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrlByCoords).then(showTemp);
-  }
-
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentCoords);
+}
+
+function getCurrentCoords(response) {
+  let latitude = response.coords.latitude;
+  let longitude = response.coords.longitude;
+  let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
+  let apiUrlByCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrlByCoords).then(showTemp);
 }
 
 let currentLocation = document.querySelector("#submit-input");
 currentLocation.addEventListener("click", searchCurrentLocation);
 
-navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+navigator.geolocation.getCurrentPosition(getCurrentCoords);
 
 function changeToCelsius(event) {
   let tempC = 24;
