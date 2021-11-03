@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Weather App</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header></header>
+      <div class="card">
+        <div class="card-body">
+          <div class="container">
+            <form id="city-form">
+              <input
+                id="city-input"
+                class="cityname"
+                type="text"
+                placeholder="Enter city name"
+              />
+              <input class="searchbutton" type="submit" value=" 🔎 " />
+              <input id="submit-input" type="submit" value=" 📍 " />
+            </form>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <section class="main">
+                  <h5>
+                    <span id="current-city"> Leeds</span>,
+                    <span id="country"> GB</span>
+                  </h5>
+                  <h1>
+                    <strong> <span id="temperature">17</span>°</strong>
+                    <span class="measurment">
+                      <a
+                        href="#"
+                        style="text-decoration: none"
+                        id="temp-celsius"
+                      >
+                        °C
+                      </a>
+                    </span>
+                    <span class="measurment"> / </span>
+                    <span class="measurment">
+                      <a
+                        href="#"
+                        style="text-decoration: none"
+                        id="temp-fahrenheit"
+                      >
+                        °F
+                      </a>
+                    </span>
+                  </h1>
+                  <p class="weather" id="weather-description">Partly Cloudy</p>
+                  <br />
+                  <p class="weather" id="currently"></p>
+                </section>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-5">
+                <ul>
+                  <li>Feels like: <span id="feels-like"> 15</span> °C</li>
+                  <li>Wind: <span id="wind-speed"> 3</span> km/h</li>
+                  <li>Humidity: <span id="humidity-percentage"> 15</span> %</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <section class="Forecast">
+            <div class="container">
+              <div class="row">
+                <div class="col predicted">
+                  <div class="day today"><strong> Today </strong></div>
+
+                  <div class="weatherEmoji">⛅️</div>
+                  <div class="highlow">
+                    <span>
+                      <strong> <span id="today-highest"> 12</span>° </strong>
+                    </span>
+                    <span> <span id="today-lowest"> 8</span>°</span>
+                  </div>
+                </div>
+                <div class="col predicted">
+                  <div class="day">Tommorrow</div>
+
+                  <div class="weatherEmoji">🌤</div>
+                  <div class="highlow">
+                    <strong> 19° </strong>
+                    13°
+                  </div>
+                </div>
+                <div class="col predicted">
+                  <div class="day">Monday</div>
+
+                  <div class="weatherEmoji">☀️</div>
+                  <div class="highlow">
+                    <strong> 17° </strong>
+                    11°
+                  </div>
+                </div>
+                <div class="col predicted">
+                  <div class="day">Tuesday</div>
+
+                  <div class="weatherEmoji">🌧</div>
+                  <div class="highlow">
+                    <strong> 13° </strong>
+                    9°
+                  </div>
+                </div>
+                <div class="col predicted">
+                  <div class="day">Wednesday</div>
+
+                  <div class="weatherEmoji">🌧</div>
+                  <div class="highlow">
+                    <strong> 15° </strong>
+                    9°
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
