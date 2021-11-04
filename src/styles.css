@@ -21,7 +21,7 @@ strong {
 }
 
 input {
-  color: #5a6275;
+  color: #f1efef;
   margin-top: 5px;
   font-size: 18px;
   line-height: 2.25;
@@ -40,7 +40,9 @@ h1 {
 
 h5 {
   margin: 35px 0px 0px 0px;
-  font-size: 30px;
+  font-size: 31px;
+  position: relative;
+  bottom: -7px;
 }
 
 p {
@@ -49,7 +51,12 @@ p {
   margin: 0px 0px 0px 0px;
 }
 
-#currently {
+#weather-description {
+  font-size: 17px;
+}
+
+#currently,
+#last-updated {
   position: relative;
   top: -25px;
 }
@@ -74,7 +81,7 @@ ul {
   list-style: none;
   font-family: "Poppins", sans-serif;
   color: #5a6275;
-  padding: 55px 0px;
+  padding: 73px 0px;
 }
 
 li {
