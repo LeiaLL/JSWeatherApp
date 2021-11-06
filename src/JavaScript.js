@@ -56,6 +56,82 @@ function showTemp(response) {
   displayDescription.innerHTML = description;
   let displayFeelsLike = document.querySelector("#feels-like");
   displayFeelsLike.innerHTML = feelsLike;
+  let changeIcon = document.querySelector("#icon");
+  if (
+    response.data.weather[0].icon === "04n" ||
+    response.data.weather[0].icon === "04d"
+  ) {
+    changeIcon.innerHTML = "☁️";
+  } else {
+    if (
+      response.data.weather[0].icon === "03n" ||
+      response.data.weather[0].icon === "03d"
+    ) {
+      changeIcon.innerHTML = "🌥";
+    } else {
+      if (
+        response.data.weather[0].icon === "13n" ||
+        response.data.weather[0].icon === "13d"
+      ) {
+        changeIcon.innerHTML = "❄️";
+      } else {
+        if (
+          response.data.weather[0].icon === "50n" ||
+          response.data.weather[0].icon === "50d"
+        ) {
+          changeIcon.innerHTML = "🌫";
+        } else {
+          if (
+            response.data.weather[0].icon === "02n" ||
+            response.data.weather[0].icon === "02d"
+          ) {
+            changeIcon.innerHTML = "⛅️";
+          } else {
+            if (
+              response.data.weather[0].icon === "01n" ||
+              response.data.weather[0].icon === "01d"
+            ) {
+              changeIcon.innerHTML = "☀️";
+            } else {
+              if (
+                response.data.weather[0].icon === "09n" ||
+                response.data.weather[0].icon === "09d"
+              ) {
+                changeIcon.innerHTML = "🌧";
+              } else {
+                if (
+                  response.data.weather[0].icon === "10n" ||
+                  response.data.weather[0].icon === "10d"
+                ) {
+                  changeIcon.innerHTML = "🌦";
+                } else {
+                  if (
+                    response.data.weather[0].icon === "11n" ||
+                    response.data.weather[0].icon === "11d"
+                  ) {
+                    changeIcon.innerHTML = "🌩";
+                  } else {
+                    if (description === "tornado") {
+                      changeIcon.innerHTML = "🌪";
+                    } else {
+                      if (
+                        description === "thunderstorm with light rain" ||
+                        description === "thunderstorm with rain" ||
+                        description === "thunderstorm with heavy rain" ||
+                        description === "thunderstorm with heavy drizzle"
+                      ) {
+                        changeIcon.innerHTML = "⛈";
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 function showCity(event) {
