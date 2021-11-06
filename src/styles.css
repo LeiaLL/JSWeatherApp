@@ -97,6 +97,14 @@ li {
   margin: 0 auto;
 }
 
+.active {
+  color: #5a6275;
+  cursor: default;
+}
+
+.active:hover {
+  color: #5a6275;
+}
 .weatherEmoji {
   font-size: 63px;
   text-align: center;

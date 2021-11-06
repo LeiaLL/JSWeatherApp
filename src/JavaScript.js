@@ -171,6 +171,8 @@ navigator.geolocation.getCurrentPosition(getCurrentCoords);
 
 function changeToCelsius(event) {
   event.preventDefault();
+  tempCelcius.classList.add("active");
+  tempFahrenheit.classList.remove("active");
   let displayCelcius = document.querySelector("#temperature");
   displayCelcius.innerHTML = Math.round(celciusTemperature);
   let displayFeelsLikeC = document.querySelector("#feels-like");
@@ -182,6 +184,8 @@ tempCelcius.addEventListener("click", changeToCelsius);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
+  tempCelcius.classList.remove("active");
+  tempFahrenheit.classList.add("active");
   let tempF = Math.round((celciusTemperature * 9) / 5 + 32);
   let displayFahrenheit = document.querySelector("#temperature");
   displayFahrenheit.innerHTML = tempF;
