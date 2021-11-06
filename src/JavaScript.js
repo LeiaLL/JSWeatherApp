@@ -31,6 +31,7 @@ showDate(now);
 function showTemp(response) {
   let city = response.data.name;
   let tempC = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
   let maxTemp = Math.round(response.data.main.temp_max);
   let minTemp = Math.round(response.data.main.temp_min);
   let humidity = Math.round(response.data.main.humidity);
@@ -38,6 +39,7 @@ function showTemp(response) {
   let description = response.data.weather[0].description;
   let country = response.data.sys.country;
   let feelsLike = Math.round(response.data.main.feels_like);
+  feelsLikeTempC = feelsLike;
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(tempC);
   let displayHumidity = document.querySelector("#humidity-percentage");
@@ -168,10 +170,11 @@ currentLocation.addEventListener("click", searchCurrentLocation);
 navigator.geolocation.getCurrentPosition(getCurrentCoords);
 
 function changeToCelsius(event) {
-  let tempC = 24;
   event.preventDefault();
   let displayCelcius = document.querySelector("#temperature");
-  displayCelcius.innerHTML = Math.round(tempC);
+  displayCelcius.innerHTML = Math.round(celciusTemperature);
+  let displayFeelsLikeC = document.querySelector("#feels-like");
+  displayFeelsLikeC.innerHTML = Math.round(feelsLikeTempC);
 }
 
 let tempCelcius = document.querySelector("#temp-celsius");
@@ -179,11 +182,16 @@ tempCelcius.addEventListener("click", changeToCelsius);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  let tempC = 24;
-  let tempF = Math.round((tempC * 9) / 5 + 32);
+  let tempF = Math.round((celciusTemperature * 9) / 5 + 32);
   let displayFahrenheit = document.querySelector("#temperature");
   displayFahrenheit.innerHTML = tempF;
+  let feelsLikeTempF = Math.round((feelsLikeTempC * 9) / 5 + 32);
+  let displayFeelsLikeF = document.querySelector("#feels-like");
+  displayFeelsLikeF.innerHTML = feelsLikeTempF;
 }
 
 let tempFahrenheit = document.querySelector("#temp-fahrenheit");
 tempFahrenheit.addEventListener("click", changeToFahrenheit);
+
+let celciusTemperature = "null";
+let feelsLikeTempC = "null";
