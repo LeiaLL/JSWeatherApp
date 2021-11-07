@@ -199,3 +199,31 @@ tempFahrenheit.addEventListener("click", changeToFahrenheit);
 
 let celciusTemperature = "null";
 let feelsLikeTempC = "null";
+
+function displayForecast() {
+  let forecast = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Today", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+              <div class="col predicted">
+                <div class="day today"><strong> ${day} </strong></div>
+                <div class="weatherEmoji">⛅️</div>
+                <div class="highlow">
+                  <span>
+                    <strong> <span id="today-highest"> 12</span>° </strong>
+                  </span>
+                  <span> <span id="today-lowest"> 8</span>°</span>
+                </div>
+              </div>
+            `;
+  });
+
+  forecast.innerHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
+displayForecast();
