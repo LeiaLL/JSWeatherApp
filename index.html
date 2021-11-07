@@ -41,14 +41,26 @@
 
           <div class="container">
             <div class="row">
-              <div class="col-6">
+              <div class="col-7">
                 <section class="main">
                   <h5>
                     <span id="current-city"> Leeds</span>,
                     <span id="country"> GB</span>
                   </h5>
+                  <p class="weather">
+                    <span class="weather" id="last-updated">
+                      Last updated:
+                    </span>
+                    <span class="weather" id="currently"></span>
+                  </p>
+                  <br />
+                  <p class="weather" id="weather-description">Partly Cloudy</p>
+
                   <h1>
-                    <strong> <span id="temperature">17</span>°</strong>
+                    <strong>
+                      <span id="current-weater-icon">☁️</span>
+                      <span id="temperature">17</span>°</strong
+                    >
                     <span class="measurment">
                       <a
                         href="#"
@@ -70,17 +82,9 @@
                       </a>
                     </span>
                   </h1>
-                  <p class="weather" id="weather-description">Partly Cloudy</p>
-                  <br />
-                  <p class="weather">
-                      <span class="weather" id="last-updated">
-                       Last updated:
-                     </span>
-                     <div class="weather" id="currently"></div>
-                   </p>
                 </section>
               </div>
-              <div class="col-1"></div>
+
               <div class="col-5">
                 <ul>
                   <li>Feels like: <span id="feels-like"> 15</span> °C</li>
@@ -91,67 +95,37 @@
             </div>
           </div>
 
-          <section class="forecast" id="weather-forecast">
-            <div class="container">
-              <div class="row">
-                <div class="col predicted">
-                  <div class="day today"><strong> Today </strong></div>
-
-                  <div class="weatherEmoji" id="icon">⛅️</div>
-                  <div class="highlow">
-                    <span>
-                      <strong> <span id="today-highest"> 12</span>° </strong>
-                    </span>
-                    <span> <span id="today-lowest"> 8</span>°</span>
-                  </div>
-                </div>
-                <div class="col predicted">
-                  <div class="day">Sunday</div>
-
-                  <div class="weatherEmoji">🌤</div>
-                  <div class="highlow">
-                    <strong> 19° </strong>
-                    13°
-                  </div>
-                </div>
-                <div class="col predicted">
-                  <div class="day">Monday</div>
-
-                  <div class="weatherEmoji">☀️</div>
-                  <div class="highlow">
-                    <strong> 17° </strong>
-                    11°
-                  </div>
-                </div>
-                <div class="col predicted">
-                  <div class="day">Tuesday</div>
-
-                  <div class="weatherEmoji">🌧</div>
-                  <div class="highlow">
-                    <strong> 13° </strong>
-                    9°
-                  </div>
-                </div>
-                <div class="col predicted">
-                  <div class="day">Wednesday</div>
-
-                  <div class="weatherEmoji">🌧</div>
-                  <div class="highlow">
-                    <strong> 15° </strong>
-                    9°
-                  </div>
+          <div class="forecast" id="weather-forecast">
+            <div class="row">
+              <div class="col predicted">
+                <div class="day today"><strong> Today </strong></div>
+                <div class="weatherEmoji">⛅️</div>
+                <div class="highlow">
+                  <span>
+                    <strong> <span id="today-highest"> 12</span>° </strong>
+                  </span>
+                  <span> <span id="today-lowest"> 8</span>°</span>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>
     <div class="signature">
       Open-source code on
-      <a href="https://github.com/LeiaLL/SheCodesPlusProject.git" target="_blank"> Github </a>
+
+      <a
+        href="https://github.com/LeiaLL/SheCodesPlusProject.git"
+        target="_blank"
+      >
+        Github
+      </a>
       by
-      <a href="https://www.linkedin.com/in/lea-lüders-71866719b/s" target="_blank">
+      <a
+        href="https://www.linkedin.com/in/lea-lüders-71866719b/s"
+        target="_blank"
+      >
         Lea Lüders
       </a>
       and hosted on

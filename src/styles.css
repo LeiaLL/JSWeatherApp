@@ -13,7 +13,7 @@ strong {
 .card {
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(107, 105, 105, 0.9);
-  padding: 20px 30px 20px 30px;
+  padding: 25px 30px 0px 30px;
   max-width: 60%;
   font-family: monospace;
   border: 3px solid #92a759;
@@ -36,29 +36,22 @@ input {
 h1 {
   font-size: 80px;
   margin: 0px 0px 0px 0px;
+  position: relative;
+  top: -20px;
 }
 
 h5 {
   margin: 35px 0px 0px 0px;
-  font-size: 31px;
-  position: relative;
-  bottom: -7px;
+  font-size: 35px;
 }
 
+#current-weater-icon {
+  font-size: 88px;
+}
 p {
   line-height: 1.25;
   padding: 1px;
   margin: 0px 0px 0px 0px;
-}
-
-#weather-description {
-  font-size: 17px;
-}
-
-#currently,
-#last-updated {
-  position: relative;
-  top: -25px;
 }
 
 .measurment {
@@ -81,7 +74,7 @@ ul {
   list-style: none;
   font-family: "Poppins", sans-serif;
   color: #5a6275;
-  padding: 73px 0px;
+  padding: 70px 0px;
 }
 
 li {
@@ -93,20 +86,13 @@ li {
   line-height: 1.25;
 }
 .forecast {
-  display: block;
-  margin: 0 auto;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+  top: -35px;
 }
 
-.active {
-  color: #5a6275;
-  cursor: default;
-}
-
-.active:hover {
-  color: #5a6275;
-}
 .weatherEmoji {
-  font-size: 63px;
+  font-size: 60px;
   text-align: center;
 }
 
@@ -130,6 +116,7 @@ li {
 .col.predicted {
   transition: all 200ms ease-in-out;
   border-radius: 5px;
+  padding: 7px 2px;
 }
 
 .col.predicted:hover {
@@ -138,6 +125,9 @@ li {
 
 #weather-description {
   text-transform: capitalize;
+  position: relative;
+  top: -22px;
+  font-size: 19px;
 }
 
 .signature {
@@ -145,4 +135,12 @@ li {
   margin: 10px;
   color: #5a6275;
   font-family: "Poppins", sans-serif;
+}
+
+.active {
+  color: #5a6275;
+  cursor: default;
+}
+.active:hover {
+  color: #5a6275;
 }
