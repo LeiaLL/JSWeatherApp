@@ -24,6 +24,7 @@ function displayForecast(response) {
 
   forecast.innerHTML = forecastHTML;
 }
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
@@ -58,9 +59,6 @@ function showDate(now) {
   let currentDate = document.querySelector("#currently");
   currentDate.innerHTML = displayDate;
 }
-
-let now = new Date();
-showDate(now);
 
 function showTemp(response) {
   let city = response.data.name;
@@ -182,9 +180,6 @@ function showCity(event) {
   axios.get(apiUrl).then(showTemp);
 }
 
-let cityForm = document.querySelector("#city-form");
-cityForm.addEventListener("submit", showCity);
-
 function searchCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentCoords);
@@ -199,11 +194,6 @@ function getCurrentCoords(response) {
   axios.get(apiUrlByCoords).then(showTemp);
 }
 
-let currentLocation = document.querySelector("#submit-input");
-currentLocation.addEventListener("click", searchCurrentLocation);
-
-navigator.geolocation.getCurrentPosition(getCurrentCoords);
-
 function changeToCelsius(event) {
   event.preventDefault();
   tempCelcius.classList.add("active");
@@ -213,9 +203,6 @@ function changeToCelsius(event) {
   let displayFeelsLikeC = document.querySelector("#feels-like");
   displayFeelsLikeC.innerHTML = Math.round(feelsLikeTempC);
 }
-
-let tempCelcius = document.querySelector("#temp-celsius");
-tempCelcius.addEventListener("click", changeToCelsius);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
@@ -229,36 +216,22 @@ function changeToFahrenheit(event) {
   displayFeelsLikeF.innerHTML = feelsLikeTempF;
 }
 
+let now = new Date();
+showDate(now);
+
+navigator.geolocation.getCurrentPosition(getCurrentCoords);
+
+let currentLocation = document.querySelector("#submit-input");
+currentLocation.addEventListener("click", searchCurrentLocation);
+
+let cityForm = document.querySelector("#city-form");
+cityForm.addEventListener("submit", showCity);
+
+let tempCelcius = document.querySelector("#temp-celsius");
+tempCelcius.addEventListener("click", changeToCelsius);
+
 let tempFahrenheit = document.querySelector("#temp-fahrenheit");
 tempFahrenheit.addEventListener("click", changeToFahrenheit);
 
 let celciusTemperature = "null";
 let feelsLikeTempC = "null";
-
-function displayForecast() {
-  let forecast = document.querySelector("#weather-forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Today", "Sunday", "Monday", "Tuesday", "Wednesday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` 
-              <div class="col predicted">
-                <div class="day today"><strong> ${day} </strong></div>
-                <div class="weatherEmoji">⛅️</div>
-                <div class="highlow">
-                  <span>
-                    <strong> <span id="today-highest"> 12</span>° </strong>
-                  </span>
-                  <span> <span id="today-lowest"> 8</span>°</span>
-                </div>
-              </div>
-            `;
-  });
-
-  forecast.innerHTML = forecastHTML + `</div>`;
-
-  forecast.innerHTML = forecastHTML;
-}
-
-displayForecast();
