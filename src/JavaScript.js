@@ -1,20 +1,20 @@
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let weatherForecast = response.data.daily;
   let forecast = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Today", "Sunday", "Monday", "Tuesday", "Wednesday"];
-  days.forEach(function (day) {
+
+  weatherForecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       ` 
               <div class="col predicted">
-                <div class="day today"><strong> ${day} </strong></div>
+                <div class="day today"><strong> ${forecastDay.dt} </strong></div>
                 <div class="weatherEmoji">⛅️</div>
                 <div class="highlow">
                   <span>
-                    <strong> <span id="today-highest"> 12</span>° </strong>
+                    <strong> <span id="today-highest"> ${forecastDay.temp.max}</span>° </strong>
                   </span>
-                  <span> <span id="today-lowest"> 8</span>°</span>
+                  <span> <span id="today-lowest"> ${forecastDay.temp.min}</span>°</span>
                 </div>
               </div>
             `;
@@ -24,6 +24,7 @@ function displayForecast(response) {
 
   forecast.innerHTML = forecastHTML;
 }
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
