@@ -10,6 +10,11 @@ strong {
   color: #92a759;
 }
 
+#today {
+  color: #92a759;
+  font-weight: bold;
+}
+
 .card {
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(107, 105, 105, 0.9);

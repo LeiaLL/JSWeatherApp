@@ -1,23 +1,48 @@
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[date.getDay()];
+  return day;
+}
+
 function displayForecast(response) {
   let weatherForecast = response.data.daily;
   let forecast = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
 
-  weatherForecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      ` 
+  weatherForecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` 
               <div class="col predicted">
-                <div class="day today"><strong> ${forecastDay.dt} </strong></div>
+                <div class="day today" id="today" > ${formatDay(
+                  forecastDay.dt
+                )} </div>
                 <div class="weatherEmoji">⛅️</div>
                 <div class="highlow">
                   <span>
-                    <strong> <span id="today-highest"> ${forecastDay.temp.max}</span>° </strong>
+                    <strong> <span id="today-highest"> ${Math.round(
+                      forecastDay.temp.max
+                    )}</span>° </strong>
                   </span>
-                  <span> <span id="today-lowest"> ${forecastDay.temp.min}</span>°</span>
+                  <span> <span id="today-lowest"> ${Math.round(
+                    forecastDay.temp.min
+                  )}</span>°</span>
                 </div>
               </div>
             `;
+    }
   });
 
   forecast.innerHTML = forecastHTML + `</div>`;
