@@ -1,3 +1,37 @@
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Today", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+              <div class="col predicted">
+                <div class="day today"><strong> ${day} </strong></div>
+                <div class="weatherEmoji">⛅️</div>
+                <div class="highlow">
+                  <span>
+                    <strong> <span id="today-highest"> 12</span>° </strong>
+                  </span>
+                  <span> <span id="today-lowest"> 8</span>°</span>
+                </div>
+              </div>
+            `;
+  });
+
+  forecast.innerHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showDate(now) {
   let hours = now.getHours();
   if (hours < 10) {
@@ -58,6 +92,7 @@ function showTemp(response) {
   displayDescription.innerHTML = description;
   let displayFeelsLike = document.querySelector("#feels-like");
   displayFeelsLike.innerHTML = feelsLike;
+  getForecast(response.data.coord);
   let changeIcon = document.querySelector("#icon");
   if (
     response.data.weather[0].icon === "04n" ||
