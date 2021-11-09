@@ -90,10 +90,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -132,58 +130,35 @@ function showTemp(response) {
   changeIcon(response.data.weather[0].icon, description);
 
   let changeMainIcon = document.querySelector("#current-icon");
-  if (
-    response.data.weather[0].icon === "04n" ||
-    response.data.weather[0].icon === "04d"
-  ) {
+  let icon = response.data.weather[0].icon;
+  if (icon === "04n" || icon === "04d") {
     changeMainIcon.innerHTML = "☁️";
   } else {
-    if (
-      response.data.weather[0].icon === "03n" ||
-      response.data.weather[0].icon === "03d"
-    ) {
+    if (icon === "03n" || icon === "03d") {
       changeMainIcon.innerHTML = "🌥";
     } else {
-      if (
-        response.data.weather[0].icon === "13n" ||
-        response.data.weather[0].icon === "13d"
-      ) {
+      if (icon === "13n" || icon === "13d") {
         changeMainIcon.innerHTML = "❄️";
       } else {
-        if (
-          response.data.weather[0].icon === "50n" ||
-          response.data.weather[0].icon === "50d"
-        ) {
+        if (icon === "50n" || icon === "50d") {
           changeMainIcon.innerHTML = "🌫";
         } else {
-          if (
-            response.data.weather[0].icon === "02n" ||
-            response.data.weather[0].icon === "02d"
-          ) {
+          if (icon === "02n" || icon === "02d") {
             changeMainIcon.innerHTML = "⛅️";
           } else {
-            if (response.data.weather[0].icon === "01d") {
+            if (icon === "01d") {
               changeMainIcon.innerHTML = "☀️";
             } else {
-              if (response.data.weather[0].icon === "01n") {
+              if (icon === "01n") {
                 changeMainIcon.innerHTML = "🌙 ";
               } else {
-                if (
-                  response.data.weather[0].icon === "09n" ||
-                  response.data.weather[0].icon === "09d"
-                ) {
+                if (icon === "09n" || icon === "09d") {
                   changeMainIcon.innerHTML = "🌧";
                 } else {
-                  if (
-                    response.data.weather[0].icon === "10n" ||
-                    response.data.weather[0].icon === "10d"
-                  ) {
+                  if (icon === "10n" || icon === "10d") {
                     changeMainIcon.innerHTML = "🌦";
                   } else {
-                    if (
-                      response.data.weather[0].icon === "11n" ||
-                      response.data.weather[0].icon === "11d"
-                    ) {
+                    if (icon === "11n" || icon === "11d") {
                       changeMainIcon.innerHTML = "🌩";
                     } else {
                       if (description === "tornado") {
@@ -210,7 +185,6 @@ function showTemp(response) {
   }
 }
 
-// use current location button
 function searchCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentCoords);
@@ -252,7 +226,6 @@ function showDate(now) {
   currentDate.innerHTML = displayDate;
 }
 
-// display city
 function showCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -264,7 +237,6 @@ function showCity(event) {
   axios.get(apiUrl).then(showTemp);
 }
 
-// unit conversion ( link to weather API)
 function changeToCelsius(event) {
   event.preventDefault();
   tempCelcius.classList.add("active");
