@@ -90,71 +90,73 @@ function showTemp(response) {
   feelsLikeTempC = feelsLike;
 
   getForecast(response.data.coord);
-  let changeIcon = document.querySelector("#current-weater-icon");
+
+  let changeMainIcon = document.querySelector("#current-icon");
   if (
     response.data.weather[0].icon === "04n" ||
     response.data.weather[0].icon === "04d"
   ) {
-    changeIcon.innerHTML = "☁️";
+    changeMainIcon.innerHTML = "☁️";
   } else {
     if (
       response.data.weather[0].icon === "03n" ||
       response.data.weather[0].icon === "03d"
     ) {
-      changeIcon.innerHTML = "🌥";
+      changeMainIcon.innerHTML = "🌥";
     } else {
       if (
         response.data.weather[0].icon === "13n" ||
         response.data.weather[0].icon === "13d"
       ) {
-        changeIcon.innerHTML = "❄️";
+        changeMainIcon.innerHTML = "❄️";
       } else {
         if (
           response.data.weather[0].icon === "50n" ||
           response.data.weather[0].icon === "50d"
         ) {
-          changeIcon.innerHTML = "🌫";
+          changeMainIcon.innerHTML = "🌫";
         } else {
           if (
             response.data.weather[0].icon === "02n" ||
             response.data.weather[0].icon === "02d"
           ) {
-            changeIcon.innerHTML = "⛅️";
+            changeMainIcon.innerHTML = "⛅️";
           } else {
-            if (
-              response.data.weather[0].icon === "01n" ||
-              response.data.weather[0].icon === "01d"
-            ) {
-              changeIcon.innerHTML = "☀️";
+            if (response.data.weather[0].icon === "01d") {
+              changeMainIcon.innerHTML = "☀️";
             } else {
-              if (
-                response.data.weather[0].icon === "09n" ||
-                response.data.weather[0].icon === "09d"
-              ) {
-                changeIcon.innerHTML = "🌧";
+              if (response.data.weather[0].icon === "01n") {
+                changeMainIcon.innerHTML = "🌙 ";
               } else {
                 if (
-                  response.data.weather[0].icon === "10n" ||
-                  response.data.weather[0].icon === "10d"
+                  response.data.weather[0].icon === "09n" ||
+                  response.data.weather[0].icon === "09d"
                 ) {
-                  changeIcon.innerHTML = "🌦";
+                  changeMainIcon.innerHTML = "🌧";
                 } else {
                   if (
-                    response.data.weather[0].icon === "11n" ||
-                    response.data.weather[0].icon === "11d"
+                    response.data.weather[0].icon === "10n" ||
+                    response.data.weather[0].icon === "10d"
                   ) {
-                    changeIcon.innerHTML = "🌩";
+                    changeMainIcon.innerHTML = "🌦";
                   } else {
-                    if (description === "tornado") {
-                      changeIcon.innerHTML = "🌪";
+                    if (
+                      response.data.weather[0].icon === "11n" ||
+                      response.data.weather[0].icon === "11d"
+                    ) {
+                      changeMainIcon.innerHTML = "🌩";
                     } else {
-                      if (
-                        description === "thunderstorm with light rain" ||
-                        description === "thunderstorm with rain" ||
-                        description === "thunderstorm with heavy rain" ||
-                        description === "thunderstorm with heavy drizzle"
-                      ) {
-                        changeIcon.innerHTML = "⛈";
+                      if (description === "tornado") {
+                        changeMainIcon.innerHTML = "🌪";
+                      } else {
+                        if (
+                          description === "thunderstorm with light rain" ||
+                          description === "thunderstorm with rain" ||
+                          description === "thunderstorm with heavy rain" ||
+                          description === "thunderstorm with heavy drizzle"
+                        ) {
+                          changeMainIcon.innerHTML = "⛈";
+                        }
                       }
                     }
                   }
