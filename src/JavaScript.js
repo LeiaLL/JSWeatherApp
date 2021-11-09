@@ -1,3 +1,40 @@
+function changeIcon(icon, description) {
+  let emoji = "";
+
+  if (icon === "04n" || icon === "04d") {
+    emoji = "☁️";
+  } else if (icon === "03n" || icon === "03d") {
+    emoji = "🌥";
+  } else if (icon === "13n" || icon === "13d") {
+    emoji = "❄️";
+  } else if (icon === "50n" || icon === "50d") {
+    emoji = "🌫";
+  } else if (icon === "02n" || icon === "02d") {
+    emoji = "⛅️";
+  } else if (icon === "01d") {
+    emoji = "☀️";
+  } else if (icon === "01n") {
+    emoji = "🌙 ";
+  } else if (icon === "09n" || icon === "09d") {
+    emoji = "🌧";
+  } else if (icon === "10n" || icon === "10d") {
+    emoji = "🌦";
+  } else if (icon === "11n" || icon === "11d") {
+    emoji = "🌩";
+  } else if (description === "tornado") {
+    emoji = "🌪";
+  } else if (
+    description === "thunderstorm with light rain" ||
+    description === "thunderstorm with rain" ||
+    description === "thunderstorm with heavy rain" ||
+    description === "thunderstorm with heavy drizzle"
+  ) {
+    emoji = "⛈";
+  }
+
+  return emoji;
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
 
@@ -26,10 +63,12 @@ function displayForecast(response) {
         forecastHTML +
         ` 
               <div class="col predicted">
-                <div class="day today" id="today" > ${formatDay(
-                  forecastDay.dt
+                <div class="day today" > ${formatDay(forecastDay.dt)} </div>
+                <div class="weatherEmoji"> 
+                ${changeIcon(
+                  forecastDay.weather[0].icon,
+                  forecastDay.weather[0].description
                 )} </div>
-                <div class="weatherEmoji">⛅️</div>
                 <div class="highlow">
                   <span>
                     <strong> <span id="today-highest"> ${Math.round(
@@ -90,6 +129,7 @@ function showTemp(response) {
   feelsLikeTempC = feelsLike;
 
   getForecast(response.data.coord);
+  changeIcon(response.data.weather[0].icon, description);
 
   let changeMainIcon = document.querySelector("#current-icon");
   if (
