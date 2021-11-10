@@ -58,12 +58,13 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   weatherForecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index === 0) {
       forecastHTML =
         forecastHTML +
         ` 
               <div class="col predicted">
-                <div class="day today" > ${formatDay(forecastDay.dt)} </div>
+                <div class="day today" id="today" > <strong> Today </strong>
+               </div>
                 <div class="weatherEmoji"> 
                 ${changeIcon(
                   forecastDay.weather[0].icon,
@@ -81,6 +82,59 @@ function displayForecast(response) {
                 </div>
               </div>
             `;
+    } else {
+      if (index === 1) {
+        forecastHTML =
+          forecastHTML +
+          ` 
+              <div class="col predicted">
+                <div class="day today" id="today" > Tommorow
+               </div>
+                <div class="weatherEmoji"> 
+                ${changeIcon(
+                  forecastDay.weather[0].icon,
+                  forecastDay.weather[0].description
+                )} </div>
+                <div class="highlow">
+                  <span>
+                    <strong> <span id="today-highest"> ${Math.round(
+                      forecastDay.temp.max
+                    )}</span>° </strong>
+                  </span>
+                  <span> <span id="today-lowest"> ${Math.round(
+                    forecastDay.temp.min
+                  )}</span>°</span>
+                </div>
+              </div>
+            `;
+      } else {
+        if (index > 0 && index < 5) {
+          forecastHTML =
+            forecastHTML +
+            ` 
+              <div class="col predicted">
+                <div class="day today" id="today" > ${formatDay(
+                  forecastDay.dt
+                )} </div>
+                <div class="weatherEmoji"> 
+                ${changeIcon(
+                  forecastDay.weather[0].icon,
+                  forecastDay.weather[0].description
+                )} </div>
+                <div class="highlow">
+                  <span>
+                    <strong> <span id="today-highest"> ${Math.round(
+                      forecastDay.temp.max
+                    )}</span>° </strong>
+                  </span>
+                  <span> <span id="today-lowest"> ${Math.round(
+                    forecastDay.temp.min
+                  )}</span>°</span>
+                </div>
+              </div>
+            `;
+        }
+      }
     }
   });
 
