@@ -149,6 +149,13 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function search(city) {
+  let apiKey = "f3bef9023a23b4fd07956b5566d08cb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showTemp);
+}
+
 function showTemp(response) {
   let city = response.data.name;
   let tempC = Math.round(response.data.main.temp);
@@ -239,11 +246,6 @@ function showTemp(response) {
   }
 }
 
-function searchCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getCurrentCoords);
-}
-
 function getCurrentCoords(response) {
   let latitude = response.coords.latitude;
   let longitude = response.coords.longitude;
@@ -251,6 +253,11 @@ function getCurrentCoords(response) {
   let apiUrlByCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrlByCoords).then(showTemp);
+}
+
+function searchCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getCurrentCoords);
 }
 
 function showDate(now) {
@@ -316,7 +323,7 @@ function changeToFahrenheit(event) {
 let now = new Date();
 showDate(now);
 
-navigator.geolocation.getCurrentPosition(getCurrentCoords);
+search("Leeds");
 
 let currentLocation = document.querySelector("#submit-input");
 currentLocation.addEventListener("click", searchCurrentLocation);
