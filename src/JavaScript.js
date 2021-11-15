@@ -35,7 +35,7 @@ function changeIcon(icon, description) {
   return emoji;
 }
 
-function formatDay(timestamp, weatherForecast) {
+function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
 
   let days = [
@@ -151,7 +151,6 @@ function getForecast(coordinates) {
 
 function showTemp(response) {
   let city = response.data.name;
-
   let tempC = Math.round(response.data.main.temp);
   celciusTemperature = response.data.main.temp;
   let maxTemp = Math.round(response.data.main.temp_max);
