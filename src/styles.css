@@ -1,5 +1,7 @@
 body {
   background-color: rgb(212, 236, 221, 0.8);
+  color: #5a6275;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -13,9 +15,8 @@ strong {
 .card {
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(107, 105, 105, 0.9);
-  padding: 25px 30px 0px 30px;
+  padding: 25px 30px 0 30px;
   max-width: 60%;
-
   border: 3px solid #92a759;
   margin: 0 auto;
 }
@@ -62,20 +63,15 @@ p {
   color: #92a759;
 }
 h6 {
-  color: #5a6275;
   margin: 30px 0 10px 0;
 }
 .main {
-  color: #5a6275;
   margin: 10px 0 10px 0;
-  font-family: "Poppins", sans-serif;
   padding: 0 0 0 30px;
 }
 
 ul {
   list-style: none;
-  font-family: "Poppins", sans-serif;
-  color: #5a6275;
   padding: 69px 18px 55px 0;
 }
 
@@ -103,19 +99,11 @@ li {
 .day {
   font-size: 15px;
   text-align: center;
-  color: #5a6275;
-}
-
-.day.today {
-  color: #5a6275;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
 }
 
 .highlow {
   font-size: 16px;
   text-align: center;
-  color: #5a6275;
 }
 
 .col.predicted {
@@ -138,6 +126,4 @@ li {
 .signature {
   text-align: center;
   margin: 10px;
-  color: #5a6275;
-  font-family: "Poppins", sans-serif;
 }
