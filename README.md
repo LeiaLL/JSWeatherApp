@@ -6,7 +6,7 @@ This is a Weather App built with JavaScript to display the current weather as we
 
 ## Features
 
-This React Weather App allows you to access the current weather and the forecast for the next four days of over 200.000 cities across the world. Alternatively, you can also access the weather forecast based on your current coordinates by using the “use current location” feature. The weather forecast includes the current temperature, wind speed, humidity and “feels like” temperature at the time of access from the latest weather update available.  Additionally, it gives you the weather prediction for the following four days and its minimum and maximum temperature. 
+This JavaScript Weather App allows you to access the current weather and the forecast for the next four days of over 200.000 cities across the world. Alternatively, you can also access the weather forecast based on your current coordinates by using the “use current location” feature. The weather forecast includes the current temperature, wind speed, humidity and “feels like” temperature at the time of access from the latest weather update available.  Additionally, it gives you the weather prediction for the following four days and its minimum and maximum temperature. 
 
 ## How To Use 
 
@@ -16,7 +16,7 @@ Alternatively, view a deployed version of this project on Netlify here: [https:/
 
 ## Technologies
 
-This project was built with HTML, CSS and JavaScript and uses Bootstrap [https://getbootstrap.com]( https://getbootstrap.com).
+This project was built with HTML, CSS and JavaScript and uses Bootstrap. To learn more above Bootstrap: [https://getbootstrap.com]( https://getbootstrap.com).
 
 
 
